@@ -170,6 +170,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Filter\LoginFilterAttribute.cs" />
+    <Compile Include="Filter\QXFilterAttribute.cs" />
+    <Compile Include="Filter\WordFilterAttribute.cs" />
+    <Compile Include="Filter\YCFilterAttributecs.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
