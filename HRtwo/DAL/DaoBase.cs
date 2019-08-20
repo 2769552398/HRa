@@ -73,7 +73,7 @@ namespace DAL
         /// 查询全部
         /// </summary>
         /// <returns></returns>
-        public List<T> FillAll()
+        public List<T> SelectAll()
         {
             List<T> list = db.Set<T>().Select(e => e).ToList();
             return list;
@@ -84,7 +84,7 @@ namespace DAL
         /// </summary>
         /// <param name="where"></param>
         /// <returns></returns>
-        public List<T> FillAllBy(Expression<Func<T, bool>> where)
+        public List<T> SelectBy(Expression<Func<T, bool>> where)
         {
             List<T> list = db.Set<T>().Select(e => e)
                 .Where(where)

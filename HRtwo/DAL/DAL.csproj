@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="config_file_first_kindDAL.cs" />
+    <Compile Include="config_file_second_kindDAL.cs" />
+    <Compile Include="config_file_third_kindDAL.cs" />
     <Compile Include="DaoBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +69,10 @@
     <ProjectReference Include="..\EFentity\EFentity.csproj">
       <Project>{dfb0beba-0b0e-4007-93a1-0ee2559119f0}</Project>
       <Name>EFentity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{9de83911-ae38-4df3-b8a5-51628b7a24d0}</Project>
+      <Name>IDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{1d359b32-d774-4cc2-828f-42ba7d5420a6}</Project>
