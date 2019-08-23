@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@model Model.config_majorModel
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>major_add</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <link href="~/css/table.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/javascript/comm/comm.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#major_kind_name").click(function () {
+                $("#major_kind_id").val($(this).val());
+            });
+        });
+
+        function show(msg) {
+            if (msg == "ok") {
+                alert('添加成功!');
+                window.location.href = '/config_major/major';
+            }
+        }
+    </script>
+</head>
+<body>
+@using (Ajax.BeginForm("major_add", new AjaxOptions() { HttpMethod = "post", OnSuccess = "show" }))
+{
+
+        <table width="100%">
+            <tr>
+                <td>
+                    <font color="black">
+                        您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--职位设置--职位添加
+                    </font>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <input type="submit" value="提交" class="BUTTON_STYLE1">
+                    <input type="button" value="返回" class="BUTTON_STYLE1"
+                           onclick="history.back();">
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" border="1" cellpadding=0 cellspacing=1
+               bordercolorlight=#848284 bordercolordark=#eeeeee
+               class="TABLE_STYLE1">
+
+            <tr>
+                <td class="TD_STYLE1" width="19%">
+                    @Html.Label("职位分类编号");
+                </td>
+                <td class="TD_STYLE2" width="81%">
+                   @*@Html.EditorFor(model=>model.major_kind_id,new {htmlAttribute=new { @class= "INPUT_STYLE1", @disabled="disabled" } })*@
+                    @Html.TextBox("major_kind_id","",new { @class = "INPUT_STYLE1", @readonly = "readonly" })
+                </td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1" width="19%">
+                    
+                    @Html.Label("职位分类名称");
+                </td>
+                <td class="TD_STYLE2" width="81%">
+                   @Html.DropDownListFor(model=>model.major_kind_name, @ViewBag.dtr as IEnumerable<SelectListItem>,"--请选择--",new {htmlAttribute=new { @class= "INPUT_STYLE1", @id="vc" } })
+                   
+                </td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1" width="19%">
+                    
+                    @Html.Label("职位编号");
+                </td>
+                <td class="TD_STYLE2" width="81%">
+                   @*@Html.EditorFor(model=>model.major_id,new { htmlAttribute=new { @class= "INPUT_STYLE1" } })*@
+                    @Html.TextBox("major_id", Model.major_id, new { @class = "INPUT_STYLE1" })
+                 </td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1" width="19%">
+                    
+                    @Html.Label("职位名称");
+                </td>
+                <td class="TD_STYLE2" width="81%">
+                    @*@Html.EditorFor(model => model.major_name, new { htmlAttribute = new { @class = "INPUT_STYLE1" } })*@
+                   @Html.TextBox("major_name", "", new { @class = "INPUT_STYLE1" })
+                     @Html.ValidationMessageFor(e => e.major_name)
+                </td>
+            </tr>
+        </table>
+}
+</body>
+</html>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace IOC
 {
-    class Class1
+    public class Class1
     {
     }
 }
