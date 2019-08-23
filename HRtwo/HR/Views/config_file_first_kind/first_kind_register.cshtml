@@ -4,15 +4,29 @@
 }
 
 <!DOCTYPE html>
-
+@model Model.config_file_first_kindModel
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>first_kind_register</title>
     <link href="~/css/table.css" rel="stylesheet" />
     <script src="~/javascript/comm/comm.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript">
+        function show(msg) {
+            if (msg == "ok") {
+                alert("新增成功!!!")
+                window.location.href = "/config_file_first_kind/first_kind";
+            }
+        }
+    </script>
 </head>
 <body>
+    @using (Ajax.BeginForm("first_kind_register", new AjaxOptions() { HttpMethod = "Post", OnSuccess = "show" }))
+    {
         <table width="100%">
             <tr>
                 <td>
@@ -37,15 +51,17 @@
                 <td width="19%" class="TD_STYLE1">
                     I级机构编号
                 </td>
-                <td width="81%" class="TD_STYLE2"></td>
+                <td class="TD_STYLE2">@Html.TextBox("first_kind_id", Model.first_kind_id, new { @class = "INPUT_STYLE1", @readonly = "readonly" })</td>
+
             </tr>
             <tr>
                 <td class="TD_STYLE1">
                     I级机构名称
                 </td>
                 <td class="TD_STYLE2">
-                    <input type="text" name="cffk.firstKindName" value=""
-                           class="INPUT_STYLE1">
+                    @*<input type="text" name="cffk.firstKindName" value=""
+                        class="INPUT_STYLE1">*@
+                    @Html.TextBox("first_kind_name", Model.first_kind_name, new { @class = "INPUT_STYLE1" })
                 </td>
             </tr>
             <tr>
@@ -53,8 +69,7 @@
                     薪酬发放责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）
                 </td>
                 <td class="TD_STYLE2">
-                    <textarea name="cffk.firstKindSalaryId" rows="4"
-                              class="TEXTAREA_STYLE1"></textarea>
+                    @Html.TextArea("first_kind_salary_id", Model.first_kind_salary_id, new { @class = "TEXTAREA_STYLE1", @rows = 4 });
                 </td>
             </tr>
             <tr>
@@ -62,10 +77,11 @@
                     销售责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）
                 </td>
                 <td class="TD_STYLE2">
-                    <textarea name="cffk.firstKindSaleId" rows="4"
-                              class="TEXTAREA_STYLE1"></textarea>
+                    @Html.TextArea("first_kind_sale_id", Model.first_kind_sale_id, new { @class = "TEXTAREA_STYLE1", @rows = 4 });
                 </td>
             </tr>
         </table>
+    }
+
 </body>
 </html>

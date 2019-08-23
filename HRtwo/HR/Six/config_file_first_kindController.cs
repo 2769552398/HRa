@@ -16,6 +16,7 @@ namespace HR.Six
     public class config_file_first_kindController : Controller
     {
         Iconfig_file_first_kindBLL ibll = IocCreat.Createconfig_file_first_kindBLL();
+        Iconfig_file_second_kindBLL iblla = IocCreat.Createconfig_file_second_kindBLL();
         // GET: config_file_first_kind
         //一级机构设置
         public ActionResult first_kind()
@@ -32,21 +33,52 @@ namespace HR.Six
         //新增
         public ActionResult first_kind_register()
         {
+            config_file_first_kindModel t = new config_file_first_kindModel();
+            t.first_kind_id = ibll.Maxfirst_kind_id().ToString();
+            ViewData.Model = t;
             return View();
         }
-
+        [HttpPost]
+        public ActionResult first_kind_register(config_file_first_kindModel t)
+        {
+            if (ModelState.IsValid)
+            {
+                if (ibll.Add(t) > 0)
+                {
+                    return Content("ok");
+                }
+                else
+                {
+                    return View(t);
+                }
+            }
+            else
+            {
+                return View();
+            }
+        }
 
         //删除
         public ActionResult Del(int id)
         {
-            config_file_first_kindModel f1 = new config_file_first_kindModel()
+            config_file_first_kindModel c = ibll.SelectById(id);
+            List<config_file_second_kindModel> c1 = iblla.SelectById3(c.first_kind_id);
+            if (c1.Count == 0)
             {
-                Id = Convert.ToInt16(id)
-            };
-            if (ibll.Del(f1) > 0)
-            {
-                return Content("ok");
-            }else
+                config_file_first_kindModel f1 = new config_file_first_kindModel()
+                {
+                    Id = Convert.ToInt16(id)
+                };
+                if (ibll.Del(f1) > 0)
+                {
+                    return Content("ok");
+                }
+                else
+                {
+                    return Content("nook");
+                }
+            }
+            else
             {
                 return Content("nook");
             }

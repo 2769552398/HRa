@@ -184,6 +184,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Six\config_file_first_kindController.cs" />
     <Compile Include="Six\config_file_second_kindController.cs" />
+    <Compile Include="Six\config_file_third_kindController.cs" />
     <Compile Include="Six\config_majorController.cs" />
     <Compile Include="Six\config_major_kindController.cs" />
     <Compile Include="Six\config_public_charController.cs" />
@@ -569,6 +570,12 @@
     <Content Include="Views\Index\top.cshtml" />
     <Content Include="Views\Index\main.cshtml" />
     <Content Include="Views\config_major\major_add.cshtml" />
+    <Content Include="Views\config_file_second_kind\second_kind.cshtml" />
+    <Content Include="Views\config_file_second_kind\second_kind_change.cshtml" />
+    <Content Include="Views\config_file_second_kind\second_kind_register.cshtml" />
+    <Content Include="Views\config_file_third_kind\third_kind.cshtml" />
+    <Content Include="Views\config_file_third_kind\third_kind_change.cshtml" />
+    <Content Include="Views\config_file_third_kind\third_kind_register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
