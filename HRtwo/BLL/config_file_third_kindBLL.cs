@@ -38,6 +38,19 @@ namespace BLL
         {
             return idal.Update(st);
         }
+
+        //求最大值
+        public object Maxthird_kind_id()
+        {
+            return idal.Maxthird_kind_id();
+        }
+
+
+        //根据机构2的编号查询,用于机构2的删除
+        public List<config_file_third_kindModel> SelectById2(string id)
+        {
+            return idal.SelectById2(id);
+        }
     }
 }
                           

@@ -58,7 +58,7 @@ namespace IOC
             UnityContainer ioc = new UnityContainer();
             //生成文件(Unity.config)对象
             ExeConfigurationFileMap ecf = new ExeConfigurationFileMap();
-            ecf.ExeConfigFilename = @"D:\NET\HR\HRa2\HRtwo\HR\Unity.config";//路径
+            ecf.ExeConfigFilename = @"E:\结业项目\HRa\HRtwo\HR\Unity.config";
             //生成配置对象
             Configuration cf = ConfigurationManager.OpenMappedExeConfiguration(ecf, ConfigurationUserLevel.None);
             //读取配置对象的Unity节点区.Configuration是UnityConfigurationSection的父类,所以要强转转换

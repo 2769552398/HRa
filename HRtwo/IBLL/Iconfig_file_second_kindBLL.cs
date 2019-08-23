@@ -15,6 +15,13 @@ namespace IBLL
         int Update(config_file_second_kindModel st);
         List<config_file_second_kindModel> Select();
         config_file_second_kindModel SelectById(int id);
+        object Maxsecond_kind_id();
+
+        //根据id查询
+        config_file_second_kindModel SelectById2(string id);
+
+        //根据id查询,用于机构3的删除
+        List<config_file_second_kindModel> SelectById3(string id);
     }
 }
                            

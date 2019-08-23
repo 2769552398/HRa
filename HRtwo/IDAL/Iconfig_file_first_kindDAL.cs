@@ -15,6 +15,10 @@ namespace IDAL
         int Update(config_file_first_kindModel st);
         List<config_file_first_kindModel> Select();
         config_file_first_kindModel SelectById(int id);
+        //生成编号
+        object Maxfirst_kind_id();
+        //用于新增更具编号查询
+        config_file_first_kindModel SelectById2(string id);
     }
 }
 
